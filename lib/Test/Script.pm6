@@ -10,38 +10,22 @@ sub output-is(Script $script,
               Str $msg,
               :@args,
               :%env ) is export {
-    my $output;
-    try {
-        @*ARGS = @args;
-        for %env.keys -> $k {
-            %*ENV{$k} = %env{$k};
-        }
-        $output = capture_stdout {
-            require $script;
-        }
-        capture_stdout_off;
-
-    }
+    my $output= get-output( $script, :@args, :%env );
     is( $output, $desired-output, $msg);
 
 }
 
 sub output-like(Script $script,
                 Regex $desired-output,
-                Str $msg ) is export {
-    my $output;
-    try {
-        $output = capture_stdout {
-            require $script;
-        }
-    }
+                Str $msg,
+                :@args,
+                :%env  ) is export {
+    my $output= get-output( $script, :@args, :%env );
     like( $output, $desired-output, $msg);
 
 }
 
 sub get-output(Script $script,
-              Str $desired-output,
-              Str $msg,
               :@args,
               :%env ) {
     my $output;
