@@ -1,18 +1,18 @@
 {
-  "auth" : "",
-  "authors" : [],
+  "auth" : "github:JJ",
+  "authors" : ["JJ Merelo"],
   "depends" : [
-    "JSON::Fast"
+    "IO::Capture::Simple"
   ],
-  "description" : "",
+  "description" : "A set of white-box tests for scripts",
   "license" : "Artistic-2.0",
-  "name" : "",
+  "name" : "Test::Script",
   "perl" : "6.d",
-  "provides" : { },
+  "provides" : { "Test::Script" : "lib/Test/Script.pm6"},
   "resources" : [ ],
   "source-url" : "",
   "tags" : [
-    "modules"
+    "modules","Test","script"
   ],
     "version" : "0.0.1",
     "meta-version": 1
