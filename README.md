@@ -1,14 +1,11 @@
-# Raku Distribution Template
+# Test::Script
 
-Template for Raku modules, classes, roles, to be distributed as a
-single package in the ecosystem. Fill this README with your
-instructions.
+Test a script in Raku, checking its output
 
 ## Installing
 
-
-<-- Fill your prerequisites here, how to install using zef, how to
-install from source -->
+Use `zef instal --deps-only . ` to install only dependencies. There are no
+ non-Raku dependencies.
 
 ## Running
 
