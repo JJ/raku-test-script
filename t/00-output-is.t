@@ -9,7 +9,7 @@ subtest "Simple", {
 
 subtest "Args", {
     my $filename = find-filename "args.p6";
-    output-is $filename, "hello: goodbye\n", "Args ",
+    output-is $filename, "hello: goodbye\n", "Two args ",
             args => ["--msg=goodbye", "hello"];
 };
 

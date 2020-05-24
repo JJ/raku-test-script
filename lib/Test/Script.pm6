@@ -37,9 +37,7 @@ sub get-output(Script $script,
         $output = capture_stdout {
             require $script;
         }
-        capture_stdout_off;
-
-    }
+   }
     $output;
 
 }
