@@ -38,3 +38,24 @@ sub output-like(Script $script,
     like( $output, $desired-output, $msg);
 
 }
+
+sub get-output(Script $script,
+              Str $desired-output,
+              Str $msg,
+              :@args,
+              :%env ) {
+    my $output;
+    try {
+        @*ARGS = @args;
+        for %env.keys -> $k {
+            %*ENV{$k} = %env{$k};
+        }
+        $output = capture_stdout {
+            require $script;
+        }
+        capture_stdout_off;
+
+    }
+    $output;
+
+}
