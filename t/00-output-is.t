@@ -2,8 +2,19 @@ use Test;
 use Test::Script;
 use lib <.>;
 
-my $filename = "hello.p6".IO.e ?? "hello.p6" !! "t/hello.p6";
+subtest "Simple", {
+    my $filename = find-filename "hello.p6";
+    output-is $filename, "Hello\n", "Tests simple output";
+};
 
-output-is $filename, "Hello\n", "Tests simple output";
+subtest "Args", {
+    my $filename = find-filename "args.p6";
+    output-is $filename, "hello: goodbye\n", "Args ",
+            args => ["--msg=goodbye", "hello"];
+};
 
 done-testing;
+
+sub find-filename( $filename ) {
+    $filename.IO.e ?? $filename !! "t/$filename";
+}
