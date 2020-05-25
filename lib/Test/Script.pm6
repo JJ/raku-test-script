@@ -11,9 +11,11 @@ Test::Script - Test-run a script
     output-is "script.p6", "hello: goodbye\n", "Two args ",
             args => ["--msg=goodbye", "hello"];
 
-    # Can't use the same name for the script twice
-    output-like "./script.p6, /"hello → goodbye"/, "Prints environment ",
+    output-like "script.p6, /"hello → goodbye"/, "Prints environment ",
             env => { "hello" => "goodbye" };
+
+    variable-ok "script.p6", '$foo', "Variable exists and is set";
+    variable-is "script.p6", '$foo', <bar baz>, "Variable exists and has value";
 
 =head1 DESCRIPTION
 
@@ -78,6 +80,7 @@ sub get-output(Script $script,
 
 }
 
+#| Check that a variable exist and is defined
 sub variable-ok(Script $script,
                 Str $variable,
                 Str $message,
@@ -88,6 +91,7 @@ sub variable-ok(Script $script,
 
 }
 
+#| Check that a variable has certain value
 sub variable-is(Script $script,
                 Str $variable,
                 Mu \value,
