@@ -88,6 +88,17 @@ sub variable-ok(Script $script,
 
 }
 
+sub variable-is(Script $script,
+                Str $variable,
+                Mu \value,
+                Str $message,
+                :@args,
+                :%env ) is export {
+    my %vars = get-vars( $script, :@args, :%env);
+    is(%vars{$variable}, value, $message);
+
+}
+
 sub get-vars(Script $script,
                 :@args,
                 :%env ) is export {
