@@ -17,7 +17,8 @@ subtest "Command line arguments", {
 
 subtest "Factorial", {
     my $filename = find-filename "factorial.p6";
-    output-is($filename, "362880", "Output well computed for 10", args => [10]);
+    output-is($filename, "3628800\n", "Output well computed for 10", args =>
+    [10]);
 
 };
 

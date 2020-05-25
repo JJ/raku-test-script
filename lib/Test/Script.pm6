@@ -68,12 +68,11 @@ sub get-output(Script $script,
         method flush {}
     }
     try {
-        @*ARGS = @args;
+        @*ARGS = @args.map: ~*;
         for %env.keys -> $k {
             %*ENV{$k} = %env{$k};
         }
-        ;
-        CompUnit::Loader.load-source-file($script.IO)
+        CompUnit::Loader.load-source-file($script.IO);
     }
     $*OUT = $stdout;
     $output;
