@@ -9,6 +9,6 @@ variable-is $filename, '$var', "1", :args([1]),
         "Variable exists and has the right value";
 
 $filename = "env-in-var.p6".IO.e ?? "env-in-var.p6" !! "t/env-in-var.p6";
-variable-is $filename, '$var', "foo" => True, :env(%(:foo)),
+variable-is $filename, '$var', True, :env(%(:foo)),
         "Env variable exists and has the right value";
 done-testing;
