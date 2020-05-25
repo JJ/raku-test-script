@@ -26,7 +26,6 @@ examination of variable values and other dynamic stuff.
 
 =end pod
 
-use IO::Capture::Simple;
 use Test;
 
 unit module Test::Script;
