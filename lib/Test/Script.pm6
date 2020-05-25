@@ -82,6 +82,13 @@ sub get-output(Script $script,
 
 =begin pod
 
+=head2 CAVEATS
+
+You can't test the same script twice in the same file. As a workaround
+(probably temporary), call it under different names such as C<./script.p6> or
+C<../dir/script.p6>; alternatively, just use different test for different
+scripts.
+
 =head1 AUTHOR
 
 JJ Merelo <jjmerelo@gmail.com>
