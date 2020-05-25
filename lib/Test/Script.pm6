@@ -29,15 +29,22 @@ sub get-output(Script $script,
               :@args,
               :%env ) {
     my $output;
+    my $stdout = $*OUT;
+    $*OUT = class {
+        method print(*@args) {
+            $output ~= @args.join;
+        }
+        method flush {}
+    }
     try {
         @*ARGS = @args;
         for %env.keys -> $k {
             %*ENV{$k} = %env{$k};
         }
-        $output = capture_stdout {
-            require $script;
-        }
-   }
+        require $script;
+
+    }
+    $*OUT = $stdout;
     $output;
 
 }

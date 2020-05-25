@@ -11,6 +11,8 @@ subtest "Args", {
     my $filename = find-filename "args.p6";
     output-is $filename, "hello: goodbye\n", "Two args ",
             args => ["--msg=goodbye", "hello"];
+    output-is "./$filename", "hello: True\n", "Two args ",
+            args => ["--msg", "hello"];
 };
 
 done-testing;
