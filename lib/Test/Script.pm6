@@ -70,8 +70,8 @@ sub get-output(Script $script,
         for %env.keys -> $k {
             %*ENV{$k} = %env{$k};
         }
-        require $script;
-
+        ;
+        CompUnit::Loader.load-source-file($script.IO)
     }
     $*OUT = $stdout;
     $output;
