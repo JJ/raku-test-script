@@ -1,3 +1,3 @@
 #!/usr/bin/env perl6
 
-our $var is export = @*ARGS.join("|");
+our $var= @*ARGS.join("|");

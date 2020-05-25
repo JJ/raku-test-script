@@ -78,6 +78,27 @@ sub get-output(Script $script,
 
 }
 
+sub variable-ok(Script $script,
+                Str $variable,
+                Str $message,
+               :@args,
+               :%env ) is export {
+    my %vars = get-vars( $script, :@args, :%env);
+    ok(%vars{$variable}, $message);
+
+}
+
+sub get-vars(Script $script,
+                :@args,
+                :%env ) is export {
+    @*ARGS = @args;
+    for %env.keys -> $k {
+        %*ENV{$k} = %env{$k};
+    }
+    my $handle = CompUnit::Loader.load-source-file($script.IO);
+    return $handle.globalish-package;
+
+}
 
 =begin pod
 
