@@ -56,6 +56,17 @@ sub output-like(Script $script,
 
 }
 
+#| Checks that it fails in an expected way
+sub error-like(Script $script,
+                Regex $desired-output,
+                Str $msg,
+                :@args,
+                :%env  ) is export {
+    my $output= get-err( $script, :@args, :%env );
+    like( $output, $desired-output, $msg);
+
+}
+
 sub get-output(Script $script,
               :@args,
               :%env ) {
@@ -75,6 +86,34 @@ sub get-output(Script $script,
         CompUnit::Loader.load-source-file($script.IO);
     }
     $*OUT = $stdout;
+    $output;
+
+}
+
+sub get-err(Script $script,
+              :@args,
+              :%env ) {
+    my $output;
+    my $stderr = $*ERR;
+    $*ERR = class {
+        method print(*@args) {
+            $output ~= @args.join;
+        }
+        method flush {}
+    }
+    try {
+        @*ARGS = @args.map: ~*;
+        for %env.keys -> $k {
+            %*ENV{$k} = %env{$k};
+        }
+        CompUnit::Loader.load-source-file($script.IO);
+        CATCH {
+            default {
+                $output ~= .message
+            }
+        }
+    }
+    $*ERR = $stderr;
     $output;
 
 }
