@@ -120,7 +120,7 @@ sub get-vars(Script $script,
 
 You can't test the same script twice in the same file. As a workaround
 (probably temporary), call it under different names such as C<./script.p6> or
-C<../dir/script.p6>; alternatively, just use different test for different
+C<../dir/script.p6>; alternatively, just use different tests for different
 scripts.
 
 =head1 AUTHOR
@@ -129,7 +129,7 @@ JJ Merelo <jjmerelo@gmail.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2020 JJ Merelo
+Copyright 2020,2022 JJ Merelo
 
 This library is free software; you can redistribute it and/or modify it under
 the Artistic 2.0 license

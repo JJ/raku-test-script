@@ -1,4 +1,4 @@
-# Test::Script
+# Test::Script [![Test-install distro](https://github.com/JJ/raku-test-script/actions/workflows/test.yaml/badge.svg)](https://github.com/JJ/raku-test-script/actions/workflows/test.yaml)
 
 Test a script in Raku, checking its output
 
@@ -29,5 +29,5 @@ See documentation [as a POD](lib/Test/Script.pm6).
 
 ## License
 
-This module will be licensed under the Artistic 2.0 License (the same as Raku
+This module is licensed under the Artistic 2.0 License (the same as Raku
  itself).
