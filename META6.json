@@ -1,19 +1,17 @@
 {
   "auth" : "github:JJ",
   "authors" : ["JJ Merelo"],
-  "depends" : [
-    "IO::Capture::Simple"
-  ],
+  "depends" : [],
   "description" : "A set of white-box tests for scripts",
   "license" : "Artistic-2.0",
   "name" : "Test::Script",
   "perl" : "6.d",
   "provides" : { "Test::Script" : "lib/Test/Script.pm6"},
   "resources" : [ ],
-  "source-url" : "git@github.com:JJ/raku-toi.git",
+  "source-url" : "https://github.com/JJ/raku-test-script.git",
   "tags" : [
     "modules","Test","script"
   ],
-    "version" : "0.0.1",
+    "version" : "0.0.3",
     "meta-version": 1
 }
