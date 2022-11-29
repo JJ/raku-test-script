@@ -1,7 +1,6 @@
 {
   "auth" : "github:JJ",
   "authors" : ["JJ Merelo"],
-  "depends" : [],
   "description" : "A set of white-box tests for scripts",
   "license" : "Artistic-2.0",
   "name" : "Test::Script",

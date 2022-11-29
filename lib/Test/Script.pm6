@@ -21,7 +21,7 @@ Test::Script - Test-run a script
 
 This module is intended as a white-box test for scripts. Instead of running
 them as black boxes, it incorporates them into the current program, allowing
-better examination of its internal working.
+better examination of its internal workings.
 
 For the time being, it's just the output, but in the roadmap is the
 examination of variable values and other dynamic stuff.
