@@ -10,7 +10,7 @@
   "perl" : "6.d",
   "provides" : { "Test::Script" : "lib/Test/Script.pm6"},
   "resources" : [ ],
-  "source-url" : "",
+  "source-url" : "git@github.com:JJ/raku-toi.git",
   "tags" : [
     "modules","Test","script"
   ],
