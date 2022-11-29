@@ -20,6 +20,8 @@ Use `zef instal --deps-only . ` to install only dependencies. There are no
             
     variable-ok "script.p6", '$foo', "Variable exists and is set";
     variable-is "script.p6", '$foo', <bar baz>, "Variable exists and has value";
+    
+    error-like "Totally-messed-up-program.p6", /messy/, "Messy program fails";
 
 ```
 
