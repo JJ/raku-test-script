@@ -2,8 +2,10 @@
 # As part of https://github.com/github/gitignore
 
 # precompiled files
-.precomp
-lib/.precomp
+.precomp/
 
 # emacs
 *~
+
+# comma
+.idea/
